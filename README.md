@@ -1,2 +1,3 @@
 # PlanMyWeek
-A discord bot that plans my university material from Coursera for the week for me.
+
+A script that plans my university material from Coursera for the week for me.
