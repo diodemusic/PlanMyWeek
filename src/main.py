@@ -59,7 +59,9 @@ def parse_markdown(plan: dict[str, list[tuple[str, int]]]) -> str:
             accumulated += dur
 
     # Build Markdown output
-    md_lines: list[str] = ["# Weekly Plan", ""]
+    week = int(input("What week are you on? "))
+
+    md_lines: list[str] = [f"# Weekly Plan - Week {week}", ""]
     for day in days:
         md_lines.append(f"## {day}")
         md_lines.append("")
