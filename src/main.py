@@ -4,7 +4,7 @@ def build_week() -> dict[str, list[tuple[str, int]]]:
     Returns:
         plan: A dict mapping module names to a list of (task name, duration) tuples.
     """
-    modules = ["CM", "ITP1"]
+    modules = ["ITP1", "CM"]
     plan: dict[str, list[tuple[str, int]]] = {module: [] for module in modules}
 
     for module in modules:
