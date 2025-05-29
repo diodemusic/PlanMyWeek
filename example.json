@@ -2,13 +2,13 @@
     "Monday": [
         {
             "ITP1": "Lesson 4.4",
-            "finished": false
+            "finished": true
         }
     ],
     "Tuesday": [
         {
             "ITP1": "Lesson 4.5",
-            "finished": false
+            "finished": true
         }
     ],
     "Wednesday": [
