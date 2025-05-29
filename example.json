@@ -1,0 +1,32 @@
+{
+    "Monday": [
+        {
+            "ITP1": "Lesson 4.4",
+            "finished": false
+        }
+    ],
+    "Tuesday": [
+        {
+            "ITP1": "Lesson 4.5",
+            "finished": false
+        }
+    ],
+    "Wednesday": [
+        {
+            "CM": "Lesson 4.3",
+            "finished": false
+        }
+    ],
+    "Thursday": [
+        {
+            "CM": "Lesson 4.4",
+            "finished": false
+        }
+    ],
+    "Friday": [
+        {
+            "CM": "Lesson 4.5",
+            "finished": false
+        }
+    ]
+}
