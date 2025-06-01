@@ -57,7 +57,7 @@ class Plan:
             markdown += f"## {day}\n\n"
 
             if not lessons:
-                markdown += f"No tasks scheduled.\n"
+                markdown += f"- No tasks scheduled.\n"
 
             for lesson in lessons:
                 markdown += f"- [ ] {list(lesson.keys())[0]} {list(lesson.values())[0]}\n"
@@ -66,6 +66,6 @@ class Plan:
 
         return markdown[:-1]
 
-    def save_markdown(self, markdown: str, path: str) -> None:
-        with open(path, "w") as f:
-            f.write(markdown)
+    # def save_markdown(self, markdown: str, path: str) -> None:
+    #     with open(path, "w") as f:
+    #         f.write(markdown)
