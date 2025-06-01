@@ -1,8 +1,3 @@
-# TODO: add week header to MD
-# week: int = 8 # int(input("What week is it? "))
-# self.markdown += f"# Weekly Plan - Week {week}\n\n"
-# TODO: let user choose lesson 0.x number
-
 class Plan:
     def __init__(self, modules: list[str]) -> None:
         self.modules = modules
@@ -14,12 +9,22 @@ class Plan:
         lessons: list[dict[str, str]] = []
 
         for module in self.modules:
-            lessons_amount: int = 3 # int(input(f"How many lessons do you have this week for {module}: "))
-            lessons_num: int = 4 # int(input(f"What's the lesson number for {module}? "))
-            lessons_decimal_num: int = 4 # int(input(f"What's the first lessons decimal number for {module}? "))
+            try:
+                lessons_amount: int = int(input(f"How many lessons do you have this week for {module}: "))
+            except:
+                print("error")
+                quit()
+
+            try:
+                first_lesson: str = input("Please enter the name of the first lesson in the following format: \"4.4\": ").split(".")
+                topic_num: int = int(first_lesson[0])
+                lessons_decimal_num: int = int(first_lesson[1])
+            except:
+                print("error")
+                quit()
 
             for i in range(lessons_amount):
-                lessons.append({module: f"Lesson {lessons_num}.{lessons_decimal_num + i}"})
+                lessons.append({module: f"Lesson {topic_num}.{lessons_decimal_num + i}"})
 
         return lessons
 
@@ -30,19 +35,34 @@ class Plan:
             "Wednesday": [],
             "Thursday": [],
             "Friday": [],
+            "Saturday": [],
+            "Sunday": []
         }
 
         days = list(week.keys())
 
-        for i in range(len(days)):
-            if list(lessons[i].keys())[0] == self.modules[0]:
-                week[days[i]].append(lessons[i])
-
-        for i in reversed(range(len(days))):
-            if list(lessons[i + 1].keys())[0] == self.modules[1]:
-                week[days[i]].append(lessons[i + 1])
+        for idx, lesson in enumerate(lessons):
+            day = days[idx % len(days)]
+            week[day].append(lesson)
 
         return week
 
     def get_markdown(self, week: dict[str, list[dict[str, str]]]) -> str:
-        pass
+        markdown: str = ""
+
+        module_week: int = int(input("What week is it? "))
+        markdown += f"# Weekly Plan - Week {module_week}\n\n"
+
+        for day, lessons in week.items():
+            markdown += f"## {day}\n\n"
+
+            for lesson in lessons:
+                markdown += f"- [ ] {list(lesson.keys())[0]} {list(lesson.values())[0]}\n"
+
+            markdown += "\n"
+
+        return markdown[:-1]
+
+    def save_markdown(self, markdown: str, path: str) -> None:
+        with open(path, "w") as f:
+            f.write(markdown)
