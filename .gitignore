@@ -174,3 +174,4 @@ cython_debug/
 .pypirc
 
 weekly_plan.md
+example.json
