@@ -56,6 +56,9 @@ class Plan:
         for day, lessons in week.items():
             markdown += f"## {day}\n\n"
 
+            if not lessons:
+                markdown += f"No tasks scheduled.\n"
+
             for lesson in lessons:
                 markdown += f"- [ ] {list(lesson.keys())[0]} {list(lesson.values())[0]}\n"
 
